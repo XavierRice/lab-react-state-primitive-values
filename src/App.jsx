@@ -1,20 +1,55 @@
-import { useState } from 'react'
+import { useState } from "react";
 import React from "react";
 import "./App.css";
-import CurrentScore from './components/CurrentScore';
-import PayButton from './components/PayButton';
 
+function App() {
+  console.log("Rendering");
 
-function App () {
-  const [count, setCount]=useState(0)
+  const [count, setCount] = useState(0);
+  const [buttonValue, setButtonValue] = useState(1);
 
-    return (
-      <main>
-        <p>React State Lab</p>
-        <CurrentScore></CurrentScore>
-        score
-      </main>
-    );
+  function raiseButton() {
+    if (count >= 10) {
+      setButtonValue(buttonValue + 1);
+      setCount(count - 10);
+    } else {
+      alert("Your Broke! Can't buy no points!!!!");
+    }
+  }
+
+  function raiseCount() {
+    setCount(count + buttonValue);
+  }
+
+  function gameReset() {
+    setButtonValue(1);
+    setCount(0);
+  }
+
+  return (
+    <main>
+      {count < 100 ? (
+        <>
+          <div>
+            <h1>Current Score:{count} </h1>
+            <div>
+              <button onClick={raiseCount}>+{buttonValue}</button>
+              <button onClick={raiseButton}>
+                "Pay 10 points to change from + {buttonValue} to +{" "}
+                {buttonValue + 1}"
+              </button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1>Current Score:{count} </h1>
+          <h2>You WIN!!!!!</h2>
+          <button onClick={gameReset}>Play Again?!</button>
+        </>
+      )}
+    </main>
+  );
 }
 
 export default App;

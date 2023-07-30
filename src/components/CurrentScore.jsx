@@ -1,15 +1,17 @@
 import { useState } from "react";
+import React from "react";
+
 
 const CurrentScore = (props) => {
   const [count, setCount] = useState(0);
   const [buttonValue, setButtonValue] = useState(1);
 
   function raiseButton() {
-    if (count > 10) {
+    if (count >= 10) {
       setButtonValue(buttonValue + 1);
       setCount(count - 10);
     } else {
-      alert("Your Broke! Can't buy no points!!!!");
+     // console.log("Your Broke! Can't buy no points!!!!");
     }
   }
 
