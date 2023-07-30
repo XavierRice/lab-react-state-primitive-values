@@ -31,8 +31,8 @@ const CurrentScore = (props) => {
           <div>
             <h1>Current Score:{count} </h1>
             <div>
-              <button onClick={raiseCount()}>+{buttonValue}</button>
-              <button onClick={raiseButton()}>
+              <button onClick={raiseCount}>+{buttonValue}</button>
+              <button onClick={raiseButton}>
                 "Pay 10 points to change from + {buttonValue} to +{" "}
                 {buttonValue + 1}"
               </button>
@@ -43,7 +43,7 @@ const CurrentScore = (props) => {
         <>
           <h1>Current Score:{count} </h1>
           <h2>You WIN!!!!!</h2>
-          <button onClick={gameReset()}>Play Again?!</button>
+          <button onClick={gameReset}>Play Again?!</button>
         </>
       )}
     </main>
